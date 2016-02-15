@@ -1,0 +1,17 @@
+{
+  "name": "ballotime",
+  "description": "",
+  "main": "server/server.js",
+  "license": "MIT",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
