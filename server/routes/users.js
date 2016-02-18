@@ -1,4 +1,4 @@
-var Model = require('./db/models/User');
+var Model = require('../db/models/User');
 
 function getAllUsers(req, res) {
   new Model.User().fetchAll()
