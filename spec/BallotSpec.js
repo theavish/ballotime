@@ -1,10 +1,10 @@
-describe("a ballot", function() {
+describe('a ballot', function() {
 
-  it("can be created", function() {
+  it('can be created', function() {
 
   });
 
-  it("can be deleted", function() {
+  it('can be deleted', function() {
 
   });
 
