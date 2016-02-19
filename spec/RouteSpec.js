@@ -1,5 +1,9 @@
 var routes = require('../server/routes');
 var fxn = require('./helpers/routingHelpers');
+var request = require('request');
+
+var server = 'http://localhost:8000';
+
 
 describe('ROUTING', function() {
 
@@ -9,6 +13,17 @@ describe('ROUTING', function() {
     });
 
     it('should return all users on GET', function() {
+      request(server + '/users', function(err, response, body) {
+        if (err) {
+          throw err;
+        }
+        console.log(body);
+        console.log(response);
+        done();
+        // expect(response.statusCode).toBe(202);
+        // expect(users.length).toBe(3);
+      });
+
 
     });
 
