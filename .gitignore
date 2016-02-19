@@ -1,4 +1,3 @@
 node_modules
 client/lib
-client/assets/node_modules
 server/db/config.js
