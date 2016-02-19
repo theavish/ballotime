@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<title>Ballotime</title>
-	<script src="assets/node_modules/angular/angular.min.js"></script>
-	<script src="assets/node_modules/underscore/underscore-min.js"></script>
-	<script src="app.js"></script>
+  <meta charset="utf-8">
+  <title>Ballotime</title>
 </head>
+
 <body ng-app="ballotime">
-	<div ng-controller="myCtrl as ctrltest">
-	{{ctrltest.test}}
-	</div>
+  <script src="./lib/angular/angular.min.js"></script>
+  <script src="./lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="./lib/underscore/underscore-min.js"></script>
+  <script src="./app.js"></script>
+  <script src="./routes.js"></script>
+  <script src="./create/controller.js"></script>
+  <script src="./home/controller.js"></script>
+  <script src="./results/controller.js"></script>
+  <script src="./vote/controller.js"></script>
+  <script src="./create/service.js"></script>
+  <script src="./home/service.js"></script>
+  <script src="./results/service.js"></script>
+  <script src="./vote/service.js"></script>
+  <a ui-sref="create">create</a> |
+  <a ui-sref="home">home</a> |
+  <a ui-sref="results">results</a> |
+  <a ui-sref="vote">vote</a> |
+  <div ui-view></div>
 </body>
+
 </html>
