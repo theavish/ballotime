@@ -4,7 +4,7 @@
   angular.module('ballotime')
     .factory('resultsF', resultsF);
 
-  // resultsF.$inject = [];
+  resultsF.$inject = [];
 
   function resultsF() {
     return {};
