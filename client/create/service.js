@@ -7,7 +7,15 @@
   createF.$inject = ['$http'];
 
   function createF($http) {
-    return {};
+
+    function submitBallot(ballot) {
+      console.log('Ballot', ballot);
+      return $http.post('/ballots', ballot).then();
+    }
+
+    return {
+      submitBallot: submitBallot
+    };
   }
 
 })();

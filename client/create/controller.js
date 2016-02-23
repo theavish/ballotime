@@ -9,7 +9,19 @@
   function createC($scope, createF) {
     var self = this;
 
-    self.message = 'create'
+    self.message = 'create';
+
+    self.submitBallot = function() {
+      var ballot = {
+        topic: self.ballot.topic,
+        option1: self.ballot.option1,
+        option2: self.ballot.option2,
+        option3: self.ballot.option3 || null,
+        option4: self.ballot.option4 || null
+      };
+
+      createF.submitBallot(ballot).then();
+    };
   }
 
 })();
