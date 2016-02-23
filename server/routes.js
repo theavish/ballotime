@@ -1,6 +1,7 @@
 var router = require('express').Router();
 var userRoutes = require('./routes/users');
 var ballotRoutes = require('./routes/ballots');
+var jsonparser = require('body-parser').json();
 
 
 /***************/
@@ -14,7 +15,7 @@ router.get('/users', userRoutes.getAllUsers);
 router.get('/user/:id', userRoutes.getUser);
 
 //add new user
-router.post('/users', userRoutes.saveUser);
+router.post('/users', jsonparser, userRoutes.saveUser);
 
 //delete a specific user
 router.delete('/user/:id', userRoutes.deleteUser);
@@ -31,7 +32,7 @@ router.get('/ballots', ballotRoutes.getAllBallots);
 router.get('/ballot/:id', ballotRoutes.getBallot);
 
 //create a new ballot
-router.post('/ballots', ballotRoutes.saveBallot);
+router.post('/ballots', jsonparser, ballotRoutes.saveBallot);
 
 //delete a specific ballot
 router.delete('/ballot/:id', ballotRoutes.deleteBallot);
