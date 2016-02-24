@@ -4,9 +4,9 @@
   angular.module('ballotime')
     .controller('createC', createC);
 
-  createC.$inject = ['$scope', 'createF'];
+  createC.$inject = ['$scope', 'createF', '$state'];
 
-  function createC($scope, createF) {
+  function createC($scope, createF, $state) {
     var self = this;
 
     self.message = 'create';
@@ -20,7 +20,9 @@
         option4: self.ballot.option4 || null
       };
 
-      createF.submitBallot(ballot).then();
+      createF.submitBallot(ballot).then(function(ballot) {
+        $state.go('vote', ballot);
+      });
     };
   }
 
