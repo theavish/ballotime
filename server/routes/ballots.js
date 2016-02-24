@@ -18,7 +18,7 @@ function saveBallot(req, res) {
       option_2: req.body.option2,
       option_3: req.body.option3,
       option_4: req.body.option4,
-      date_created: new Date
+      date_created: new Date()
     }).save()
     .then(function(ballot) {
       res.send(ballot);

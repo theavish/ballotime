@@ -9,8 +9,10 @@
   function createF($http) {
 
     function submitBallot(ballot) {
-      console.log('Ballot', ballot);
-      return $http.post('/ballots', ballot).then();
+      return $http.post('/ballots', ballot).then(function(response) {
+        console.log('ballot', response);
+        return response.data;
+      });
     }
 
     return {
