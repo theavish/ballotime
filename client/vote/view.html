@@ -1,3 +1,9 @@
 <div ng-controller="voteC as vote">
-{{vote.message}}
+  <div class="ballot">
+    <h1 class="topic">{{vote.ballot.topic}}</h1>
+    <p ng-click="vote.submitVote($event)" id="option_1">{{vote.ballot.option_1}}</p>
+    <p ng-click="vote.submitVote($event)" id="option_2">{{vote.ballot.option_2}}</p>
+    <p ng-click="vote.submitVote($event)" id="option_3">{{vote.ballot.option_3}}</p>
+    <p ng-click="vote.submitVote($event)" id="option_4">{{vote.ballot.option_4}}</p>
+  </div>
 </div>

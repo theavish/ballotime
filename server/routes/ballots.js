@@ -49,9 +49,27 @@ function getBallot(req, res) {
     });
 }
 
+function submitVote(req, res) {
+  var ballotId = req.params.id;
+  var option = req.params.option;
+  var optionVotes = option + '_votes';
+  new Model.Ballot().where('id', ballotId)
+    .fetch()
+    .then(function(ballot) {
+      var vote = {};
+      vote[optionVotes] = ++ballot.attributes[optionVotes];
+      ballot.save(vote[optionVotes]);
+      res.send(ballot);
+    })
+    .catch(function(error) {
+      res.send(error);
+    });
+}
+
 module.exports = {
   getAllBallots: getAllBallots,
   saveBallot: saveBallot,
   deleteBallot: deleteBallot,
-  getBallot: getBallot
+  getBallot: getBallot,
+  submitVote: submitVote
 };

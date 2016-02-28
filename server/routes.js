@@ -37,6 +37,9 @@ router.post('/ballots', jsonparser, ballotRoutes.saveBallot);
 //delete a specific ballot
 router.delete('/ballot/:id', ballotRoutes.deleteBallot);
 
+//submit a vote for a specific ballot
+router.put('/ballot/:id/:option', jsonparser, ballotRoutes.submitVote);
+
 
 
 module.exports = router;
