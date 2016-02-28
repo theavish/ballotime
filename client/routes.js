@@ -18,7 +18,10 @@
       })
       .state('vote', {
         url: '/vote',
-        templateUrl: '../vote/view.html'
+        templateUrl: '../vote/view.html',
+        params: {
+          ballot: null
+        }
       })
       .state('results', {
         url: '/results',

@@ -21,7 +21,9 @@
       };
 
       createF.submitBallot(ballot).then(function(ballot) {
-        $state.go('vote', ballot);
+        $state.go('vote', {
+          ballot: ballot
+        });
       });
     };
   }
