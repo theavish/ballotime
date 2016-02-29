@@ -8,20 +8,24 @@
 
   function voteC($scope, voteF, $stateParams) {
     var self = this;
-    // self.ballot = $stateParams.ballot;
-    self.ballot = {
-      topic: 'test topic',
-      id: 16,
-      option_1: 'option one',
-      option_2: 'option two',
-      option_3: 'option three',
-      option_4: 'option four'
+    self.ballot = $stateParams.ballot;
+
+    // self.ballot.totalVotes = self.ballot.option_1_votes + self.ballot.option_2_votes + self.ballot.option_3_votes + self.ballot.option_4_votes
+
+    self.getBallot = function() {
+      voteF.getBallot(self.ballotIdInput)
+        .then(function(data) {
+          self.ballot = data;
+        });
     };
 
     self.submitVote = function($event) {
       var option = $event.currentTarget.attributes.id.value;
       var ballotId = self.ballot.id;
-      voteF.submitVote(option, ballotId);
+      voteF.submitVote(option, ballotId)
+        .then(function(data) {
+          self.ballot = data;
+        });
     };
   }
 
