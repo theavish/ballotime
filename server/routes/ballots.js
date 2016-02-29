@@ -14,6 +14,7 @@ function saveBallot(req, res) {
   console.log(req.body);
   new Model.Ballot({
       topic: req.body.topic,
+      pretty_id: req.body.prettyId,
       option_1: req.body.option1,
       option_2: req.body.option2,
       option_3: req.body.option3,

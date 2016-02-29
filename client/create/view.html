@@ -1,13 +1,23 @@
 <div ng-controller="createC as create">
-{{create.message}}
-<form ng-submit="create.submitBallot()">
-  <ul>
-    <li>Topic: <input type="text" ng-model="create.ballot.topic" required /></li>
-    <li>Option 1: <input type="text" ng-model="create.ballot.option1" required /></li>
-    <li>Option 2: <input type="text" ng-model="create.ballot.option2" required /></li>
-    <li>Option 3: <input type="text" ng-model="create.ballot.option3" /></li>
-    <li>Option 4: <input type="text" ng-model="create.ballot.option4" /></li>
-  </ul>
-  <button>Submit</button>
-</form>
+  The id for this ballot will be: <span><mark>{{create.prettyId}}</mark></span>
+  <form ng-submit="create.submitBallot()">
+    <ul>
+      <li>Topic:
+        <input type="text" ng-model="create.ballot.topic" required />
+      </li>
+      <li>Option 1:
+        <input type="text" ng-model="create.ballot.option1" required />
+      </li>
+      <li>Option 2:
+        <input type="text" ng-model="create.ballot.option2" required />
+      </li>
+      <li>Option 3:
+        <input type="text" ng-model="create.ballot.option3" />
+      </li>
+      <li>Option 4:
+        <input type="text" ng-model="create.ballot.option4" />
+      </li>
+    </ul>
+    <button>Submit</button>
+  </form>
 </div>

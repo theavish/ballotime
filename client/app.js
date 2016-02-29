@@ -1,1 +1,2 @@
-angular.module('ballotime', ['ui.router', 'ui.bootstrap']);
+angular.module('ballotime', ['ui.router', 'ui.bootstrap'])
+  .constant('chance', new Chance());
