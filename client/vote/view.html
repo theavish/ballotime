@@ -9,7 +9,8 @@
     </div>
     <div ng-show="vote.ballot" class="panel panel-primary">
       <div class="panel-heading">
-        <h3>{{vote.ballot.topic}}</h3></div>
+        <h3><span class="text-left">{{vote.ballot.topic}}</span> <span class="pull-right">({{vote.ballot.pretty_id}})</span></h3>
+      </div>
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-12" ng-click="vote.submitVote($event)" id="option_1">

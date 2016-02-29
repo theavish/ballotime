@@ -24,9 +24,18 @@
       });
     }
 
+    function getBallotByPrettyId(ballotId) {
+      var url = '/ballot/' + ballotId + '/pretty';
+      return $http.get(url).then(function(response) {
+        console.log('the server responded with', response);
+        return response.data;
+      });
+    }
+
     return {
       submitVote: submitVote,
-      getBallot: getBallot
+      getBallot: getBallot,
+      getBallotByPrettyId: getBallotByPrettyId
     };
   }
 
