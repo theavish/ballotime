@@ -31,6 +31,9 @@ router.get('/ballots', ballotRoutes.getAllBallots);
 //get a single ballot
 router.get('/ballot/:id', ballotRoutes.getBallot);
 
+//get a single ballot
+router.get('/ballot/:id/pretty', ballotRoutes.getBallotByPrettyId);
+
 //create a new ballot
 router.post('/ballots', jsonparser, ballotRoutes.saveBallot);
 

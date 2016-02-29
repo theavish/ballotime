@@ -50,6 +50,18 @@ function getBallot(req, res) {
     });
 }
 
+function getBallotByPrettyId(req, res) {
+  var ballotId = req.params.id;
+  new Model.Ballot().where('pretty_id', ballotId)
+    .fetch()
+    .then(function(ballot) {
+      res.send(ballot);
+    })
+    .catch(function(error) {
+      res.send(error);
+    });
+}
+
 function submitVote(req, res) {
   var ballotId = req.params.id;
   var option = req.params.option;
@@ -72,5 +84,6 @@ module.exports = {
   saveBallot: saveBallot,
   deleteBallot: deleteBallot,
   getBallot: getBallot,
-  submitVote: submitVote
+  submitVote: submitVote,
+  getBallotByPrettyId: getBallotByPrettyId
 };
