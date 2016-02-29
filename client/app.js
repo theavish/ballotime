@@ -1,1 +1,1 @@
-angular.module('ballotime', ['ui.router']);
+angular.module('ballotime', ['ui.router', 'ui.bootstrap']);

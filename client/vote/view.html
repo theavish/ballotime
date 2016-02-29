@@ -1,9 +1,39 @@
 <div ng-controller="voteC as vote">
   <div class="ballot">
-    <h1 class="topic">{{vote.ballot.topic}}</h1>
-    <p ng-click="vote.submitVote($event)" id="option_1">{{vote.ballot.option_1}}</p>
-    <p ng-click="vote.submitVote($event)" id="option_2">{{vote.ballot.option_2}}</p>
-    <p ng-click="vote.submitVote($event)" id="option_3">{{vote.ballot.option_3}}</p>
-    <p ng-click="vote.submitVote($event)" id="option_4">{{vote.ballot.option_4}}</p>
+    <div ng-if="!vote.ballot">
+      <form ng-submit="vote.getBallot()">
+        <span>Please enter the ballot id to vote:</span>
+        <input type="text" ng-model="vote.ballotIdInput" placeholder="ballot id" />
+        <button>Get Ballot</button>
+      </form>
+    </div>
+    <div ng-show="vote.ballot" class="panel panel-primary">
+      <div class="panel-heading">
+        <h3>{{vote.ballot.topic}}</h3></div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-12" ng-click="vote.submitVote($event)" id="option_1">
+            <center><i>{{vote.ballot.option_1}}</i></center>
+            <uib-progressbar class="progress-striped active" max="vote.ballot.totalVotes" value="vote.ballot.option_1_votes" type="success">{{vote.ballot.option_1_votes}} / {{vote.ballot.totalVotes}}
+            </uib-progressbar>
+          </div>
+          <div class="col-sm-12" ng-click="vote.submitVote($event)" id="option_2">
+            <center><i>{{vote.ballot.option_2}}</i></center>
+            <uib-progressbar class="progress-striped active" max="vote.ballot.totalVotes" value="vote.ballot.option_2_votes" type="success">{{vote.ballot.option_2_votes}} / {{vote.ballot.totalVotes}}
+            </uib-progressbar>
+          </div>
+          <div class="col-sm-12" ng-click="vote.submitVote($event)" id="option_3">
+            <center><i>{{vote.ballot.option_3}}</i></center>
+            <uib-progressbar class="progress-striped active" max="vote.ballot.totalVotes" value="vote.ballot.option_3_votes" type="success">{{vote.ballot.option_3_votes}} / {{vote.ballot.totalVotes}}
+            </uib-progressbar>
+          </div>
+          <div class="col-sm-12" ng-click="vote.submitVote($event)" id="option_4">
+            <center><i>{{vote.ballot.option_4}}</i></center>
+            <uib-progressbar class="progress-striped active" max="vote.ballot.totalVotes" value="vote.ballot.option_4_votes" type="success">{{vote.ballot.option_4_votes}} / {{vote.ballot.totalVotes}}
+            </uib-progressbar>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

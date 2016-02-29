@@ -10,13 +10,23 @@
 
     function submitVote(option, ballotId) {
       var url = '/ballot/' + ballotId + '/' + option;
-      $http.put(url).then(function(response) {
+      return $http.put(url).then(function(response) {
         console.log('the server responded with', response);
+        return response.data;
+      });
+    }
+
+    function getBallot(ballotId) {
+      var url = '/ballot/' + ballotId;
+      return $http.get(url).then(function(response) {
+        console.log('the server responded with', response);
+        return response.data;
       });
     }
 
     return {
-      submitVote: submitVote
+      submitVote: submitVote,
+      getBallot: getBallot
     };
   }
 
