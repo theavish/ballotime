@@ -23,12 +23,12 @@
             <uib-progressbar class="progress-striped active" max="vote.ballot.totalVotes" value="vote.ballot.option_2_votes" type="success">{{vote.ballot.option_2_votes}} / {{vote.ballot.totalVotes}}
             </uib-progressbar>
           </div>
-          <div class="col-sm-12" ng-click="vote.submitVote($event)" id="option_3">
+          <div ng-show="vote.ballot.option_3" class="col-sm-12" ng-click="vote.submitVote($event)" id="option_3">
             <center><i>{{vote.ballot.option_3}}</i></center>
             <uib-progressbar class="progress-striped active" max="vote.ballot.totalVotes" value="vote.ballot.option_3_votes" type="success">{{vote.ballot.option_3_votes}} / {{vote.ballot.totalVotes}}
             </uib-progressbar>
           </div>
-          <div class="col-sm-12" ng-click="vote.submitVote($event)" id="option_4">
+          <div ng-show="vote.ballot.option_4" class="col-sm-12" ng-click="vote.submitVote($event)" id="option_4">
             <center><i>{{vote.ballot.option_4}}</i></center>
             <uib-progressbar class="progress-striped active" max="vote.ballot.totalVotes" value="vote.ballot.option_4_votes" type="success">{{vote.ballot.option_4_votes}} / {{vote.ballot.totalVotes}}
             </uib-progressbar>
