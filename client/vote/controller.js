@@ -15,7 +15,7 @@
     self.getBallot = function() {
       voteF.getBallot(self.ballotIdInput)
         .then(function(data) {
-          if (data === '') {
+          if (!data) {
             voteF.getBallotByPrettyId(self.ballotIdInput)
               .then(function(data) {
                 self.ballot = data;
