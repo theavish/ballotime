@@ -16,6 +16,7 @@
   }
   </style>
   <link rel="stylesheet" type="text/css" href="./lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./styles/page.css">
   <script src="./lib/angular/angular.min.js"></script>
   <script src="./lib/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="./lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -35,7 +36,14 @@
   <a ui-sref="results">results</a> |
   <a ui-sref="vote">vote</a>
   <div class="container-fluid">
-    <ui-view></ui-view>
+    <div class="panel panel-primary page">
+      <div class="panel-heading">
+        <h1 class="panel-title"><a ui-sref="home">BalloTime</a></h1>
+      </div>
+      <div class="panel-body">
+        <ui-view></ui-view>
+      </div>
+    </div>
   </div>
 </body>
 
