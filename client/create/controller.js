@@ -4,9 +4,9 @@
   angular.module('ballotime')
     .controller('createC', createC);
 
-  createC.$inject = ['$scope', 'createF', '$state', 'chance'];
+  createC.$inject = ['$scope', 'createF', '$state', 'chance', '$location'];
 
-  function createC($scope, createF, $state, chance) {
+  function createC($scope, createF, $state, chance, $location) {
     var self = this;
 
     self.prettyId = chance.word({
@@ -24,9 +24,9 @@
       };
 
       createF.submitBallot(ballot).then(function(ballot) {
-        $state.go('vote', {
-          ballot: ballot
-        });
+        var id = self.prettyId;
+        // $state.go('voteOnId.id',{id:id});
+        $location.url('vote/' + id);
       });
     };
   }

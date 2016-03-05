@@ -20,7 +20,7 @@
         templateUrl: '../create/view.html'
       })
       .state('vote', {
-        url: '/vote',
+        url: '/vote/:id',
         templateUrl: '../vote/view.html',
         params: {
           ballot: null

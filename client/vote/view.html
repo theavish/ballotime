@@ -1,4 +1,4 @@
-<div ng-controller="voteC as vote">
+<div ng-controller="voteC as vote" ng-init="vote.getBallotFromUrl()">
   <div class="ballot">
     <div ng-if="!vote.ballot">
       <form ng-submit="vote.getBallot()">
