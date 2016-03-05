@@ -29,6 +29,13 @@
       .state('results', {
         url: '/results',
         templateUrl: '../results/view.html'
+      })
+      .state('voteOnId', {
+        url: '/vote/:id',
+        templateUrl: '../vote/view.html',
+        params: {
+          ballot: null
+        }
       });
 
     $urlRouterProvider.otherwise('/');

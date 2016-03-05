@@ -4,19 +4,20 @@
   angular.module('ballotime')
     .controller('voteC', voteC);
 
-  voteC.$inject = ['$scope', 'voteF', '$stateParams', 'cookiesF'];
+  voteC.$inject = ['$scope', 'voteF', '$stateParams', 'cookiesF', '$location'];
 
-  function voteC($scope, voteF, $stateParams, cookiesF) {
+  function voteC($scope, voteF, $stateParams, cookiesF, $location) {
 
     var self = this;
 
     self.ballot = $stateParams.ballot;
 
-    self.getBallot = function() {
-      voteF.getBallot(self.ballotIdInput)
+    self.getBallot = function(id) {
+      id = id || self.ballotIdInput;
+      voteF.getBallot(id)
         .then(function(data) {
           if (!data) {
-            voteF.getBallotByPrettyId(self.ballotIdInput)
+            voteF.getBallotByPrettyId(id)
               .then(function(data) {
                 if (!data) {
                   swal({
@@ -36,6 +37,13 @@
             voteF.setBarType(self.ballot, self);
           }
         });
+    };
+
+    self.getBallotFromUrl = function() {
+      var id = $location.path().replace('/vote/', '');
+      if (id !== '/vote') {
+        self.getBallot(id);
+      }
     };
 
     self.submitVote = function($event) {
