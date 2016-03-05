@@ -11,11 +11,6 @@
     var self = this;
 
     self.ballot = $stateParams.ballot;
-    self.votedBallots = cookiesF.getCookie('votedCookie');
-
-    if (self.ballot) {
-      voteF.getTotalVotes(self.ballot);
-    }
 
     self.getBallot = function() {
       voteF.getBallot(self.ballotIdInput)
@@ -44,9 +39,10 @@
     };
 
     self.submitVote = function($event) {
+      var votedBallots = cookiesF.getCookie('votedCookie');
       var option = $event.currentTarget.attributes.id.value;
       var ballotId = self.ballot.id;
-      if (_.includes(self.votedBallots, ballotId)) {
+      if (_.includes(votedBallots, ballotId)) {
         swal({
           title: 'Error',
           text: 'You\'ve already voted on this ballot.',
