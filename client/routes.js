@@ -4,9 +4,12 @@
   angular.module('ballotime')
     .config(routes);
 
-  routes.$inject = ['$stateProvider', '$urlRouterProvider'];
+  routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-  function routes($stateProvider, $urlRouterProvider) {
+  function routes($stateProvider, $urlRouterProvider, $locationProvider) {
+
+    $locationProvider.html5Mode(true);
+
     $stateProvider
       .state('home', {
         url: '/',
