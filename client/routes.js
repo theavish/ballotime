@@ -20,7 +20,7 @@
         templateUrl: '../create/view.html'
       })
       .state('vote', {
-        url: '/vote',
+        url: '/vote/:id',
         templateUrl: '../vote/view.html',
         params: {
           ballot: null
@@ -29,13 +29,6 @@
       .state('results', {
         url: '/results',
         templateUrl: '../results/view.html'
-      })
-      .state('voteOnId', {
-        url: '/vote/:id',
-        templateUrl: '../vote/view.html',
-        params: {
-          ballot: null
-        }
       });
 
     $urlRouterProvider.otherwise('/');

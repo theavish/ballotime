@@ -41,7 +41,7 @@
 
     self.getBallotFromUrl = function() {
       var id = $location.path().replace('/vote/', '');
-      if (id !== '/vote') {
+      if (id !== '/vote' || !id) {
         self.getBallot(id);
       }
     };
