@@ -27,8 +27,11 @@
         }
       })
       .state('results', {
-        url: '/results',
-        templateUrl: '../results/view.html'
+        url: '/results/:id',
+        templateUrl: '../results/view.html',
+        params: {
+          ballot: null
+        }
       });
 
     $urlRouterProvider.otherwise('/');

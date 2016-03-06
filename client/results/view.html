@@ -1,3 +1,54 @@
-<div ng-controller="resultsC as results">
-{{results.message}}
+<div ng-controller="resultsC as res" ng-init="res.getBallotFromUrl()">
+  <div class="ballot">
+    <div ng-if="!res.ballot">
+      <form ng-submit="res.getBallot()">
+        <span>Please enter the ballot id to view its results:</span>
+        <input type="text" ng-model="res.ballotIdInput" placeholder="ballot id" />
+        <button>Get Ballot</button>
+      </form>
+    </div>
+    <div ng-show="res.ballot" class="panel panel-default">
+      <div class="panel-heading">
+        <h3><span class="text-left">{{res.ballot.topic}}</span> <span class="pull-right"><small style="color: black">{{res.ballot.pretty_id}}</small></span></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-2 col-sm-2 col-md-2"></div>
+          <div class="col-xs-8 col-sm-8 col-md-8" id="option_1">
+            <center><i>{{res.ballot.option_1}}</i></center>
+            <uib-progressbar class="progress-striped active" max="res.ballot.totalVotes" value="res.ballot.option_1_votes" type="{{res.type1}}">{{res.ballot.option_1_votes}}
+            </uib-progressbar>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2 col-sm-2 col-md-2"></div>
+          <div class="col-xs-8 col-sm-8 col-md-8" id="option_2">
+            <center><i>{{res.ballot.option_2}}</i></center>
+            <uib-progressbar class="progress-striped active" max="res.ballot.totalVotes" value="res.ballot.option_2_votes" type="{{res.type2}}">{{res.ballot.option_2_votes}}
+            </uib-progressbar>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2 col-sm-2 col-md-2"></div>
+          <div ng-show="res.ballot.option_3" class="col-xs-8 col-sm-8 col-md-8" id="option_3">
+            <center><i>{{res.ballot.option_3}}</i></center>
+            <uib-progressbar class="progress-striped active" max="res.ballot.totalVotes" value="res.ballot.option_3_votes" type="{{res.type3}}">{{res.ballot.option_3_votes}}
+            </uib-progressbar>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2 col-sm-2 col-md-2"></div>
+          <div ng-show="res.ballot.option_4" class="col-xs-8 col-sm-8 col-md-8" id="option_4">
+            <center><i>{{res.ballot.option_4}}</i></center>
+            <uib-progressbar class="progress-striped active" max="res.ballot.totalVotes" value="res.ballot.option_4_votes" type="{{res.type4}}">{{res.ballot.option_4_votes}}
+            </uib-progressbar>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
