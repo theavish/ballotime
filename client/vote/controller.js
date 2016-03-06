@@ -7,7 +7,7 @@
   voteC.$inject = ['$scope', 'voteF', '$stateParams', 'cookiesF', '$location'];
 
   function voteC($scope, voteF, $stateParams, cookiesF, $location) {
-
+   
     var self = this;
 
     self.ballot = $stateParams.ballot;
@@ -40,8 +40,8 @@
     };
 
     self.getBallotFromUrl = function() {
-      var id = $location.path().replace('/vote/', '');
-      if (id !== '/vote' || !id) {
+      var id = $stateParams.id || null;
+      if (id) {
         self.getBallot(id);
       }
     };
