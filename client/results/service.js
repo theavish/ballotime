@@ -46,7 +46,6 @@
     return {
       setBarType: setBarType,
       getTotalVotes: getTotalVotes,
-      submitVote: voteF.submitVote,
       getBallot: voteF.getBallot,
       getBallotByPrettyId: voteF.getBallotByPrettyId
     };
