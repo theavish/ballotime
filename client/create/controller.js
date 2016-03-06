@@ -10,7 +10,7 @@
     var self = this;
 
     self.prettyId = chance.word({
-      length: 5
+      length: 6
     });
 
     self.submitBallot = function() {
@@ -25,7 +25,6 @@
 
       createF.submitBallot(ballot).then(function(ballot) {
         var id = self.prettyId;
-        // $state.go('voteOnId.id',{id:id});
         $location.url('vote/' + id);
       });
     };
