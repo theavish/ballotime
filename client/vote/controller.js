@@ -4,10 +4,10 @@
   angular.module('ballotime')
     .controller('voteC', voteC);
 
-  voteC.$inject = ['$scope', 'voteF', '$stateParams', 'cookiesF', '$location'];
+  voteC.$inject = ['$scope', 'voteF', '$stateParams', 'cookiesF', '$state'];
 
-  function voteC($scope, voteF, $stateParams, cookiesF, $location) {
-   
+  function voteC($scope, voteF, $stateParams, cookiesF, $state) {
+
     var self = this;
 
     self.ballot = $stateParams.ballot;
@@ -27,14 +27,10 @@
                   });
                 } else {
                   self.ballot = data;
-                  voteF.getTotalVotes(self.ballot);
-                  voteF.setBarType(self.ballot, self);
                 }
               });
           } else {
             self.ballot = data;
-            voteF.getTotalVotes(self.ballot);
-            voteF.setBarType(self.ballot, self);
           }
         });
     };
@@ -46,9 +42,8 @@
       }
     };
 
-    self.submitVote = function($event) {
+    self.submitVote = function(option) {
       var votedBallots = cookiesF.getCookie('votedCookie');
-      var option = $event.currentTarget.attributes.id.value;
       var ballotId = self.ballot.id;
       if (_.includes(votedBallots, ballotId)) {
         swal({
@@ -60,13 +55,13 @@
         voteF.submitVote(option, ballotId)
           .then(function(data) {
             self.ballot = data;
-            voteF.getTotalVotes(self.ballot);
-            voteF.setBarType(self.ballot, self);
             cookiesF.addToCookie('votedCookie', ballotId);
             swal({
               title: 'Success',
               text: 'Your vote has been recorded.',
               type: 'success'
+            }, function() {
+              $state.go('results', { ballot: self.ballot });
             });
           });
       }
