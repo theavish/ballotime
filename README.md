@@ -11,6 +11,9 @@
 #### To contribute: ####
 1. Fork the repo.
 2. Make your changes.
-3. Make a Pull Request to our dev branch.
+3. Make a Pull Request to our dev branch using similar grammar to what you see in use.
 4. Wait patiently for your PR to be merged/closed.
 5. Feel good about yourself for helping build an open-source application!
+
+#### Want to contribute, but don't know where to begin or how to code it? ####
+Shoot me an email at `avi.samloff@gmail.com`. I'd love to get any additional ideas for more features, or just walk you through our codebase.
