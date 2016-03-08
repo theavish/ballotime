@@ -10,7 +10,7 @@
 
     function addToCookie(cookie, newData) {
       var current = $cookies.get(cookie);
-      if (!current.length) {
+      if (!current) {
         $cookies.put(cookie, newData);
       } else {
         $cookies.put(cookie, current + ',' + newData);
