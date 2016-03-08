@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "nodemon server/server.js || node server/server.js",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "npm install -g bower && install"
   },
   "author": "",
   "license": "MIT",
