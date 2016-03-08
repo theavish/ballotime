@@ -1,5 +1,4 @@
 var router = require('express').Router();
-var userRoutes = require('./routes/users');
 var ballotRoutes = require('./routes/ballots');
 var jsonparser = require('body-parser').json();
 
